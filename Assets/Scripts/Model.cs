@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Model : MonoBehaviour
 {
-    private int[,] boardNow = new int[8, 6];
+    private int[,] currentBoard = new int[8, 6];
     public BoardTemplate boardTemplate;
     
     void Start()
     {
-        this.boardNow = this.boardTemplate.GetNewBoard();
-        Show2DArrayInLog(boardNow);
+        this.currentBoard = this.boardTemplate.GetNewBoard();
+        Show2DArrayInLog(currentBoard);
     }
 
     private void Show2DArrayInLog(int[,] a)
@@ -24,5 +24,10 @@ public class Model : MonoBehaviour
             }
             Debug.Log(buf);
         }
+    }
+
+    public int[,] GetCurrentBoard()
+    {
+        return this.currentBoard;
     }
 }
