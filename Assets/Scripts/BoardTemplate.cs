@@ -62,7 +62,7 @@ public class BoardTemplate : MonoBehaviour
         Random.InitState(System.DateTime.Now.Millisecond);
     }
 
-    public int[,] getNewBoard()
+    public int[,] GetNewBoard()
     {
         // Decide two boards randomly
         int boardNum1, boardNum2;
@@ -79,15 +79,10 @@ public class BoardTemplate : MonoBehaviour
             for(int x = 0; x < 6; x++)
             {
                 // Set a board upside down
-                newBoard[y, x] = this.boards[boardNum1, 3 - y, 5 - x];
-            }
-        }
-        for(int y = 4; y < 8; y++)
-        {
-            for(int x = 0; x < 6; x++)
-            {
+                newBoard[3 - y, 5 - x] = this.boards[boardNum1, y, x];
+
                 // Set a board at the latter half of newBoard
-                newBoard[y, x] = this.boards[boardNum2, y + 3, x];
+                newBoard[y + 4, x] = this.boards[boardNum2, y, x];
             }
         }
 
