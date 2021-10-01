@@ -57,7 +57,7 @@ public class BoardTemplate : MonoBehaviour
          {0,0,0,0,0,0}}  // 9
     };
 
-    void Start()
+    void Awake()
     {
         Random.InitState(System.DateTime.Now.Millisecond);
     }
