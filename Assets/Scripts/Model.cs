@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Model : MonoBehaviour
 {
+    [SerializeField] BoardTemplate boardTemplate;
+    [SerializeField] PieceTemplate pieceTemplate;
     private int[,] currentBoard = new int[8, 6];
     private int[][] pieceCard = new int[2][];
-    public BoardTemplate boardTemplate;
-    public PieceTemplate pieceTemplate;
     
     void Awake()
     {

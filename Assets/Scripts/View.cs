@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class View : MonoBehaviour
 {
-    public Model model;
-    public GameObject squarePrefab;
-    public GameObject[] piecesPrefab;
+    [SerializeField] Model model;
+    [SerializeField] GameObject squarePrefab;
+    [SerializeField] GameObject[] piecesPrefab;
 
     void Start()
     {
