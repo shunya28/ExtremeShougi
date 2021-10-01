@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PieceTemplate : MonoBehaviour
 {
-    // 1: ou, 2: hisha, 3: kaku, 4: kin
-    // 5: gin, 6: kei, 7: kyou, 8: fu
+    // 0: ou, 1: hisha, 2: kaku, 3: kin
+    // 4: gin, 5: kei, 6: kyou, 7: fu
     private int[][] pieces = new int[][]
     {
-        new int[] {8,8,6,2,1},
-        new int[] {8,6,5,3,1},
-        new int[] {8,6,6,4,1},
-        new int[] {8,7,6,5,1},
-        new int[] {8,7,7,7,1},
-        new int[] {8,8,5,4,1}
+        new int[] {7,7,5,1,0},
+        new int[] {7,5,4,2,0},
+        new int[] {7,5,5,3,0},
+        new int[] {7,6,5,4,0},
+        new int[] {7,6,6,6,0},
+        new int[] {7,7,4,3,0}
     };
 
     void Awake()

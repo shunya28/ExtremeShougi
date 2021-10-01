@@ -237,6 +237,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1432609273}
   squarePrefab: {fileID: 813384461053211863, guid: 33b919dbdcebaf04f86b0c0f65b1a3ca, type: 3}
+  piecesPrefab:
+  - {fileID: 207294004305555073, guid: dc5fa5801fdd6d34fbd5dba08c1d3ed2, type: 3}
+  - {fileID: 4463795230389123530, guid: 8f06a21494773e6489f658a5d601e1e6, type: 3}
+  - {fileID: 8910845165683462329, guid: fd6cbeff3c53ea9448c4e7cc014344d9, type: 3}
+  - {fileID: 5910624777494300384, guid: 683c914f3aa9e3e43bce3b7d73f6d0b1, type: 3}
+  - {fileID: 9144305944477561261, guid: 96c1a6731a7ad4b4eb128ed48757da71, type: 3}
+  - {fileID: 5605132557198507894, guid: ac1d9ad4c8e62804e9ae35501c424100, type: 3}
+  - {fileID: 2984657777081472688, guid: af97e5559c3e0ac4fbb14a97c2f94f94, type: 3}
+  - {fileID: 4149602031344308001, guid: 439cdf08bb1c77140aadefdc9213b720, type: 3}
 --- !u!4 &1141593699
 Transform:
   m_ObjectHideFlags: 0
