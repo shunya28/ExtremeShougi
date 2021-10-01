@@ -14,29 +14,27 @@ public class PieceController : MonoBehaviour
 
     void OnMouseDown()
     {
+        // Control movements of a piece
         if(!isFloating)
         {
             this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             isFloating = true;
-            return;
         }
-
-        // If a piece is floating, it will stay at a square by the process below
-        float x = Mathf.Floor(transform.position.x) + 0.5f;
-        float y = Mathf.Floor(transform.position.y) + 0.5f;
-        transform.position = new Vector3(x, y, 0);
-        isFloating = false;
+        else // If a piece is floating, it will stay at a square by the process below
+        {
+            float x = Mathf.Floor(transform.position.x) + 0.5f;
+            float y = Mathf.Floor(transform.position.y) + 0.5f;
+            transform.position = new Vector3(x, y, 0);
+            isFloating = false;
+        }
+        
+        // Check if double-clicked
+        touchCount++;
+        Invoke("ChangePieceImg",0.3f);
     }
     
     void Update()
     {
-        // Check if double-clicked
-        if(Input.GetMouseButtonDown(0))
-        {
-            touchCount++;
-            Invoke("ChangePieceImg",0.3f);
-        }
-
         // If a piece is floating, it follows to a cursor
         if(isFloating)
         {
