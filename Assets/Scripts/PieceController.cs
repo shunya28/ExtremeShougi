@@ -7,10 +7,20 @@ public class PieceController : MonoBehaviour
     // Reference of dragging: https://qiita.com/ReoNagai/items/1becdea9e6fa9b55c82a
     // Reference of double click: https://note.com/08_14/n/nd58684fcc519
 
+    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite frontSprite;
+    [SerializeField] Sprite backSprite;
+
     private Vector3 screenPoint;
     private Vector3 offset;
     private int touchCount = 0;
     private bool isFloating = false;
+    private bool isBack = false;
+
+    void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     void OnMouseDown()
     {
@@ -50,6 +60,25 @@ public class PieceController : MonoBehaviour
         if(touchCount != 2) { touchCount = 0; return; }     
         else{ touchCount = 0; }
 
-        Debug.Log("double clicked");
+        // Change a piece image
+        if(isBack)
+        {
+            spriteRenderer.sprite = frontSprite;
+            transform.Rotate(0, 0, 180.0f);
+            isBack = false;
+        }
+        else
+        {
+            // If a piece does not have a back image, just rotate it
+            if(backSprite == null)
+            {
+                transform.Rotate(0, 0, 180.0f);
+            }
+            else
+            {
+                spriteRenderer.sprite = backSprite;
+                isBack = true;
+            }
+        }
     }
 }

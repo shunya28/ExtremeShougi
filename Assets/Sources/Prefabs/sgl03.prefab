@@ -144,3 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476aa12e3c4e3a84fab4ded842acae03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 7071073516661427291}
+  frontSprite: {fileID: 21300000, guid: 6661fa6ec5c1c834ca180332ecff47e2, type: 3}
+  backSprite: {fileID: 21300000, guid: df3651898e679f642aff482ff2951739, type: 3}
