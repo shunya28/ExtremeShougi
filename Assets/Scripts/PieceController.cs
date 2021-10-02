@@ -14,7 +14,6 @@ public class PieceController : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
     private int touchCount = 0;
-    private bool isFloating = false;
     private bool isBack = false;
 
     void Start()
@@ -24,41 +23,40 @@ public class PieceController : MonoBehaviour
 
     void OnMouseDown()
     {
-        // Control movements of a piece
-        if(!isFloating)
-        {
-            this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
-            isFloating = true;
-        }
-        else // If a piece is floating, it will stay at a square by the process below
-        {
-            float x = Mathf.Floor(transform.position.x) + 0.5f;
-            float y = Mathf.Floor(transform.position.y) + 0.5f;
-            transform.position = new Vector3(x, y, 0);
-            isFloating = false;
-        }
-        
-        // Check if double-clicked
+        this.screenPoint = Camera.main.WorldToScreenPoint(transform.position);
+        this.offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+
+        // A process for checking double click
         touchCount++;
         Invoke("ChangePieceImg",0.3f);
     }
-    
-    void Update()
+
+    void OnMouseDrag()
     {
-        // If a piece is floating, it follows to a cursor
-        if(isFloating)
-        {
-            Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-            Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint);
-            transform.position = currentPosition;
-        }
+        Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint);
+        transform.position = currentPosition;
     }
 
+    void OnMouseUp()
+    {
+        float x = Mathf.Floor(transform.position.x) + 0.5f;
+        float y = Mathf.Floor(transform.position.y) + 0.5f;
+        transform.position = new Vector3(x, y, 0);
+    }
+    
     private void ChangePieceImg()
     {
         // Double-clicked?
-        if(touchCount != 2) { touchCount = 0; return; }     
-        else{ touchCount = 0; }
+        if(touchCount != 2)
+        {
+            touchCount = 0;
+            return;
+        }     
+        else
+        {
+            touchCount = 0;
+        }
 
         // Change a piece image
         if(isBack)
